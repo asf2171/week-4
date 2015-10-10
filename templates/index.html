@@ -18,14 +18,14 @@
 		}
 
 		circle {
-			fill-opacity: .3;
-			fill: red;
-			stroke-width: 0px;
-		}
+ 			fill-opacity: .6;
+ 			fill: #00CCFF;
+ 			stroke-width: 0px;
+ 		}
 		circle:hover {
-		  	stroke: black;
-		  	stroke-width: 2px;
-		  	cursor: crosshair;
+    		stroke: white;
+     		stroke-width: 4px;
+ 			cursor: crosshair;
 		}
 
 		div.tooltip{
@@ -48,7 +48,7 @@
 			right: 0px;
 			width: 250px;
 			height: 500px;
-			background: rgba(255,255,255,.8);
+			background: rgba(255,255,255,.9);
 		}
 
 		em{
@@ -70,7 +70,7 @@
 	</div>
 
 	<div class="menu">
-		<p><h4>DMC Web Stack</h4></p>
+		<p><h4>Check Ins Heat Map</h4></p>
 		<form>
 			<p><input id="heatmap" type="checkbox">Heat Map</p>
 			<p><input type="button" value="Update Data" onclick="updateData()"></p>
@@ -96,19 +96,11 @@
 
 		var map = L.map('map').setView([22.539029, 114.062076], 16);
 
-		//this is the OpenStreetMap tile implementation
-
-		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-		}).addTo(map);
-
-		//uncomment for Mapbox implementation, and supply your own access token
-
-		// L.tileLayer('https://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={accessToken}', {
-		// 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-		// 	mapid: 'mapbox.light',
-		// 	accessToken: [INSERT YOUR TOKEN HERE!]
-		// }).addTo(map);
+ 		L.tileLayer('https://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={accessToken}', {
+ 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+ 		mapid: 'mapbox.dark',
+ 		accessToken: 'pk.eyJ1IjoiYXNmMjE3MSIsImEiOiJjaWZiYmswMnUyaGJ3c21seHYxYXR3emI4In0.qwq7CPON9T4XpeMKIqnQ7Q'
+ 		}).addTo(map);
 
 		//create variables to store a reference to svg and g elements
 
